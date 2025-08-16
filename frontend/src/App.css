@@ -18,6 +18,10 @@
 @media (min-width: 768px) {
   .custom-cursor-enabled * {
     cursor: none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
   }
 }
 
