@@ -179,7 +179,7 @@ const EnhancedHomepage = () => {
       <div className="flex flex-col lg:flex-row min-h-screen relative z-10">
         {/* Left Side - Red */}
         {/* This section contains the main heading and call-to-action elements */}
-        <div className="w-full lg:w-1/2 bg-metadesign-red flex flex-col justify-center items-start px-6 sm:px-12 lg:px-16 py-16 lg:py-0 relative group overflow-hidden">
+        <div className="w-full lg:w-1/2 bg-metadesign-red flex flex-col justify-center items-start px-6 sm:px-12 lg:px-16 py-16 lg:py-0 relative group overflow-hidden" style={{position:'relative'}}>
           {/* Ballpit Background - Desktop Only */}
           {/* Ballpit overlay - Desktop Only. Covers entire red left side */}
           {!isMobile && (
