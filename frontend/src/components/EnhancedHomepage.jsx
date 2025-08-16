@@ -211,7 +211,7 @@ const EnhancedHomepage = () => {
           {/* Main heading with typewriter effect */}
           <ScrollAnimations animation="slideInLeft" delay={500}>
             <div className="max-w-lg relative z-20">
-              <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-light leading-tight mb-8 lg:mb-12 overflow-hidden">
+              <h1 className="text-white text-5xl sm:text-6xl lg:text-8xl xl:text-9xl font-semibold leading-tight tracking-tight mb-8 lg:mb-12 overflow-hidden">
                 {typewriterStarted ? (
                   <TypewriterEffect
                     text="We create bold brands that make an impact"
