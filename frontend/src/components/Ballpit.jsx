@@ -555,15 +555,19 @@ class Y extends c {
 
 const X = {
   count: 200,
-  colors: [0, 0, 0],
-  ambientColor: 16777215,
-  ambientIntensity: 1,
-  lightIntensity: 200,
+  // Default color theme: metadesign red
+  colors: [0xf2021c, 0xf2021c],
+  ambientColor: 0xffffff,
+  ambientIntensity: 0.8,
+  lightIntensity: 150,
   materialParams: {
-    metalness: 0.5,
-    roughness: 0.5,
-    clearcoat: 1,
-    clearcoatRoughness: 0.15,
+    metalness: 0.4,
+    roughness: 0.6,
+    clearcoat: 0.8,
+    clearcoatRoughness: 0.2,
+    transparent: true,
+    opacity: 0.28,
+    color: 0xf2021c,
   },
   minSize: 0.5,
   maxSize: 1,
