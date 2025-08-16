@@ -79,7 +79,7 @@ const VideoCarousel = ({ onVideoLoad }) => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-black/50 will-change-opacity transition-opacity duration-300"></div>
 
         {/* Info Bottom Left */}
         <div className="absolute bottom-8 left-8 right-8 text-white transition-all duration-500">
