@@ -186,7 +186,7 @@ const EnhancedHomepage = () => {
             <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
               {typeof window !== 'undefined' && (
                 <Ballpit
-                  count={180}
+                  performanceMode="auto"
                   gravity={0.7}
                   friction={0.8}
                   wallBounce={0.95}
