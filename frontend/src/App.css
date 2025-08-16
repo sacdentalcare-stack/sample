@@ -222,6 +222,12 @@ body {
   animation: shimmer 1.5s infinite;
 }
 
+/* Reduce overscroll/flash artifacts on WebKit */
+html, body {
+  -webkit-text-size-adjust: 100%;
+  background-color: #000; /* avoids white flash on initial paint under overlays */
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
