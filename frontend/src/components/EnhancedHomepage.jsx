@@ -106,7 +106,7 @@ const EnhancedHomepage = () => {
 
   // Handle device detection
   const checkDevice = useCallback(() => {
-    setIsMobile(window.innerWidth &lt; 768);
+    setIsMobile(window.innerWidth < 768);
   }, []);
 
   // Handle panel opening
