@@ -171,6 +171,10 @@ class x {
     this.renderer.setSize(this.size.width, this.size.height);
     this.#t?.setSize(this.size.width, this.size.height);
     let e = window.devicePixelRatio;
+    // Reduce extreme DPR to prevent flicker/stalls on hover
+    if (this.maxPixelRatio && e > this.maxPixelRatio) {
+      e = this.maxPixelRatio;
+    }
     if (this.maxPixelRatio && e > this.maxPixelRatio) {
       e = this.maxPixelRatio;
     } else if (this.minPixelRatio && e < this.minPixelRatio) {
