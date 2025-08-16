@@ -747,7 +747,33 @@ const Ballpit = ({ className = '', followCursor = true, ...props }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    spheresInstanceRef.current = createBallpit(canvas, { followCursor, ...props });
+    // Detect low-power / reduced motion preference
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isLowMemory = typeof performance !== 'undefined' && performance && performance.memory ? performance.memory.jsHeapSizeLimit < 512 * 1024 * 1024 : false;
+    const isLowEndCPU = typeof navigator !== 'undefined' && navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
+
+    const lowPower = prefersReducedMotion || isLowMemory || isLowEndCPU;
+
+    const configOverrides = lowPower ? {
+      count: 80,            // reduce spheres
+      maxVelocity: 0.1,     // slower
+      friction: 0.999,      // smoother decay
+      materialParams: {
+        transparent: true,
+        opacity: 0.2,
+        color: 0xf2021c,
+        metalness: 0.3,
+        roughness: 0.7,
+        clearcoat: 0.6,
+        clearcoatRoughness: 0.25,
+      },
+      lightIntensity: 110,
+      ambientIntensity: 0.7,
+    } : {
+      count: 160,
+    };
+
+    spheresInstanceRef.current = createBallpit(canvas, { followCursor, ...props, ...configOverrides });
 
     return () => {
       if (spheresInstanceRef.current) {
