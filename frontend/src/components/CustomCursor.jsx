@@ -70,16 +70,16 @@ const CustomCursor = () => {
 
       {/* Hover cursor */}
       <div
-        className={`fixed top-0 left-0 pointer-events-none z-[9998] transition-all duration-300 ease-out ${
-          isHovering ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+        className={`fixed top-0 left-0 pointer-events-none z-[9998] transition-transform duration-150 ease-out ${
+          isHovering ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
         style={{
           transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
         }}
       >
-        <div className={`w-10 h-10 rounded-full border-2 ${
+        <div className={`w-10 h-10 rounded-full border-2 bg-transparent ${
           cursorType === 'red' ? 'border-metadesign-red' : 'border-white'
-        } mix-blend-difference`} />
+        }`} />
       </div>
     </>
   );
