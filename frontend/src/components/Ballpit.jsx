@@ -753,7 +753,8 @@ const Ballpit = ({ className = '', followCursor = true, performanceMode = 'auto'
     const isLowMemory = typeof performance !== 'undefined' && performance && performance.memory ? performance.memory.jsHeapSizeLimit < 512 * 1024 * 1024 : false;
     const isLowEndCPU = typeof navigator !== 'undefined' && navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
 
-    const lowPower = prefersReducedMotion || isLowMemory || isLowEndCPU;
+    const autoLowPower = prefersReducedMotion || isLowMemory || isLowEndCPU;
+    const lowPower = performanceMode === 'low' ? true : performanceMode === 'high' ? false : autoLowPower;
 
     const configOverrides = lowPower ? {
       count: 80,            // reduce spheres
