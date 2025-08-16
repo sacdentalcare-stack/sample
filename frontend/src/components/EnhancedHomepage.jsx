@@ -155,7 +155,7 @@ const EnhancedHomepage = () => {
       {/* Animated Background Elements - Only on Desktop */}
       {/* These elements create a parallax effect that follows mouse movement */}
       {!isMobile && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none will-change-transform">
           <div
             className="absolute w-96 h-96 bg-gradient-radial from-metadesign-red/5 to-transparent rounded-full transition-transform duration-1000 ease-out"
             style={{
