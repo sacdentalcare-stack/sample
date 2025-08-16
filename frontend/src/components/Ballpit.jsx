@@ -799,6 +799,13 @@ const Ballpit = ({ className = '', followCursor = true, performanceMode = 'auto'
     <canvas
       className={`${className} w-full h-full`}
       ref={canvasRef}
+      style={{
+        display: 'block',
+        background: 'transparent',
+        WebkitTransform: 'translateZ(0)',
+        transform: 'translateZ(0)',
+        willChange: 'transform',
+      }}
     />
   );
 };
