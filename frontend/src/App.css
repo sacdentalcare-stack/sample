@@ -29,8 +29,16 @@
 }
 
 /* Smooth transitions for all interactive elements */
+/* Limit global transitions to avoid hover flickers and repaint storms */
 * {
-  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Avoid background-color transitions globally to prevent white flick on hover */
+button, a, .hover-lift, .hover-scale, .hover-glow {
+  transition-property: opacity, transform, color, box-shadow, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
 /* Ensure full viewport height */
