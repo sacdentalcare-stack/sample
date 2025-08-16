@@ -183,7 +183,7 @@ const EnhancedHomepage = () => {
           {/* Ballpit Background - Desktop Only */}
           {/* Ballpit overlay - Desktop Only. Covers entire red left side */}
           {!isMobile && (
-            <div className="absolute inset-0 z-10" aria-hidden="true">
+            <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
               {typeof window !== 'undefined' && (
                 <Ballpit
                   count={180}
