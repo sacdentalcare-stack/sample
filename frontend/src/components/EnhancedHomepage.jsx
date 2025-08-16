@@ -183,7 +183,7 @@ const EnhancedHomepage = () => {
           {/* Ballpit Background - Desktop Only */}
           {/* Ballpit overlay - Desktop Only. Covers entire red left side */}
           {!isMobile && (
-            <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true">
+            <div className="absolute inset-0 z-10 pointer-events-none" aria-hidden="true" style={{contain: 'layout paint size', WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)'}}>
               {typeof window !== 'undefined' && (
                 <Ballpit
                   performanceMode="auto"
