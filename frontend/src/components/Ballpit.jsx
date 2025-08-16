@@ -756,6 +756,9 @@ const Ballpit = ({ className = '', followCursor = true, performanceMode = 'auto'
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Prevent pointer hover from triggering compositing changes under the canvas
+    canvas.style.pointerEvents = 'none';
+
     // Detect low-power / reduced motion preference
     const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isLowMemory = typeof performance !== 'undefined' && performance && performance.memory ? performance.memory.jsHeapSizeLimit < 512 * 1024 * 1024 : false;
