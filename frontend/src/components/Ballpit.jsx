@@ -728,6 +728,15 @@ function createBallpit(e, t = {}) {
 
 const Ballpit = ({ className = '', followCursor = true, ...props }) => {
   const canvasRef = useRef(null);
+  // degrade gracefully if WebGL is not available
+  const webglSupported = typeof window !== 'undefined' && (() => {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    } catch (_) {
+      return false;
+    }
+  })();
   const spheresInstanceRef = useRef(null);
 
   useEffect(() => {
