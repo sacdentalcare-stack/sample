@@ -80,6 +80,9 @@ class x {
     };
     this.renderer = new s(e);
     this.renderer.outputColorSpace = n;
+    // Ensure transparent clears to avoid white flashes
+    this.renderer.setClearColor(0x000000, 0);
+    this.maxPixelRatio = 1.5;
   }
   #g() {
     if (!(this.#e.size instanceof Object)) {
