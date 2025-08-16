@@ -181,32 +181,33 @@ const EnhancedHomepage = () => {
         {/* This section contains the main heading and call-to-action elements */}
         <div className="w-full lg:w-1/2 bg-metadesign-red flex flex-col justify-center items-start px-6 sm:px-12 lg:px-16 py-16 lg:py-0 relative group overflow-hidden">
           {/* Ballpit Background - Desktop Only */}
+          {/* Ballpit overlay - Desktop Only. Covers entire red left side */}
           {!isMobile && (
-            <div style={{position: 'relative', overflow: 'hidden', minHeight: '500px', maxHeight: '500px', width: '100%'}} id="ballpit-container">
+            <div className="absolute inset-0 z-10" aria-hidden="true">
               {typeof window !== 'undefined' && (
                 <Ballpit
-                  count={200}
+                  count={180}
                   gravity={0.7}
                   friction={0.8}
                   wallBounce={0.95}
                   followCursor={true}
+                  className="w-full h-full"
                 />
               )}
             </div>
           )}
-          
-          {/* Parallax Background Effect - Desktop Only */}
-          {/* Subtle background movement that follows mouse position */}
+
+          {/* Parallax Background Effect - Desktop Only (behind ballpit) */}
           {!isMobile && (
             <div
-              className="absolute inset-0 opacity-10 transition-transform duration-1000 z-10"
+              className="absolute inset-0 opacity-10 transition-transform duration-1000 z-0"
               style={{
                 transform: `translate(${mousePosition.x * -0.05}px, ${mousePosition.y * -0.05}px) scale(1.1)`,
                 background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%)',
               }}
             />
           )}
-          
+
           {/* Main heading with typewriter effect */}
           <ScrollAnimations animation="slideInLeft" delay={500}>
             <div className="max-w-lg relative z-20">
