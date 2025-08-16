@@ -61,6 +61,23 @@ const EnhancedHomepage = () => {
   const aboutPanelRef = useRef();
   const workPanelRef = useRef();
 
+  // Define closePanel BEFORE any handlers that reference it to avoid TDZ errors
+  const closePanel = useCallback((panel) => {
+    if (panel === 'about') {
+      setShowAbout(false);
+      // Return focus to the about button
+      if (aboutButtonRef.current) {
+        aboutButtonRef.current.focus();
+      }
+    } else {
+      setShowWork(false);
+      // Return focus to the work button
+      if (workButtonRef.current) {
+        workButtonRef.current.focus();
+      }
+    }
+  }, []);
+
   // Handle mouse movement for parallax effects
   const handleMouseMove = useCallback((e) => {
     // Throttle mouse movement updates
@@ -89,7 +106,18 @@ const EnhancedHomepage = () => {
 
   // Handle device detection
   const checkDevice = useCallback(() => {
-    setIsMobile(window.innerWidth < 768);
+    setIsMobile(window.innerWidth &lt; 768);
+  }, []);
+
+  // Handle panel opening
+  const openPanel = useCallback((panel) => {
+    if (panel === 'about') {
+      setShowAbout(true);
+      setShowWork(false);
+    } else {
+      setShowWork(true);
+      setShowAbout(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -120,34 +148,6 @@ const EnhancedHomepage = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isMobile, showAbout, showWork, checkDevice, handleMouseMove, handleKeyDown]);
-
-  // Handle panel opening
-  const openPanel = useCallback((panel) => {
-    if (panel === 'about') {
-      setShowAbout(true);
-      setShowWork(false);
-    } else {
-      setShowWork(true);
-      setShowAbout(false);
-    }
-  }, []);
-
-  // Handle panel closing with focus return
-  const closePanel = useCallback((panel) => {
-    if (panel === 'about') {
-      setShowAbout(false);
-      // Return focus to the about button
-      if (aboutButtonRef.current) {
-        aboutButtonRef.current.focus();
-      }
-    } else {
-      setShowWork(false);
-      // Return focus to the work button
-      if (workButtonRef.current) {
-        workButtonRef.current.focus();
-      }
-    }
-  }, []);
 
   return (
     <ErrorBoundary>
