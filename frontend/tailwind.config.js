@@ -52,7 +52,9 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+  			'metadesign-red': '#f2021c',
+  			'metadesign-black': '#000000'
   		},
   		keyframes: {
   			'accordion-down': {
@@ -78,5 +80,5 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };

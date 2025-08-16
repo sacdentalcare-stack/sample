@@ -1,0 +1,64 @@
+/* WorkPage specific styles */
+.work-page-container {
+  position: relative;
+  min-height: 100vh;
+  margin-left: 16.666667%; /* 1/6 for desktop */
+}
+
+@media (max-width: 1023px) {
+  .work-page-container {
+    margin-left: 0;
+  }
+}
+
+.red-sidebar-full-height {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16.666667%; /* 1/6 */
+  background-color: #f2021c; /* metadesign-red */
+  z-index: 30; /* Reduced from 40 to be behind footer */
+  height: 100vh;
+  min-height: 100vh;
+}
+
+/* JavaScript will update this dynamically */
+@media (min-width: 1024px) {
+  .red-sidebar-full-height {
+    height: var(--page-height, 100vh);
+  }
+}
+
+.red-sidebar-content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 8rem;
+}
+
+.red-sidebar-text {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+/* Content should respect the sidebar */
+.work-content {
+  margin-left: 0;
+}
+
+@media (min-width: 1024px) {
+  .work-content {
+    margin-left: 16.666667%; /* 1/6 */
+  }
+}
+
+@media (max-width: 1023px) {
+  .red-sidebar-full-height {
+    display: none;
+  }
+}
