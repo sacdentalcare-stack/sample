@@ -730,7 +730,8 @@ function createBallpit(e, t = {}) {
   };
 }
 
-const Ballpit = ({ className = '', followCursor = true, ...props }) => {
+// performanceMode: 'auto' | 'low' | 'high' (optional)
+const Ballpit = ({ className = '', followCursor = true, performanceMode = 'auto', ...props }) => {
   const canvasRef = useRef(null);
   // degrade gracefully if WebGL is not available
   const webglSupported = typeof window !== 'undefined' && (() => {
